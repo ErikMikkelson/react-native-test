@@ -45,7 +45,7 @@
               modules = [
                 {
                     # # https://devenv.sh/scripts/
-                  scripts.motd.exec = "echo Welcome to Thrivent Web!";
+                  scripts.motd.exec = "echo Welcome to react-native-test!";
 
                   # https://devenv.sh/languages/
                   languages.javascript = {
