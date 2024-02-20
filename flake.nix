@@ -3,7 +3,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
     systems.url = "github:nix-systems/default";
     devenv.url = "github:cachix/devenv";
-    android-nixpkgs = "github:tadfisher/android-nixpkgs/stable";
+    android-nixpkgs.url = "github:tadfisher/android-nixpkgs/stable";
   };
 
   nixConfig = {
