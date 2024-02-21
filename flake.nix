@@ -79,6 +79,8 @@
                     export PATH="./node_modules/.bin:$PATH"
 
                     ${(builtins.readFile "${sdk}/nix-support/setup-hook")}
+
+                    export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
                   '';
 
                   # See full reference at https://devenv.sh/reference/options/

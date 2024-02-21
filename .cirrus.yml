@@ -6,14 +6,14 @@ task:
   hello_script:
     - sudo launchctl kickstart -k system/org.nixos.nix-daemon
     - . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-    - brew install direnv
-    - nix-env -if https://install.devenv.sh/latest
-    - direnv allow
-    # - yarn install
-    # - pushd apps/mobile
-    # - bundle
-    # - popd
-    # - yarn nx pod-install mobile
-    # - yarn nx build-android mobile
-    # - yarn nx build-ios mobile
+    - nix develop --impure --accept-flake-config
+    - rm -rf .nx
+    - rm -rf node_modules
+    - yarn install
+    - pushd apps/mobile
+    - bundle
+    - popd
+    - yarn nx pod-install mobile
+    - yarn nx build-android mobile
+    - yarn nx build-ios mobile
     - sleep 15
