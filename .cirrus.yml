@@ -13,9 +13,10 @@ task:
     - pushd apps/mobile
     - bundle
     - popd
-    # - npx react-native doctor
+    - npx react-native doctor
     - yarn nx pod-install mobile
-    # - yarn nx build-ios mobile
+    - yarn nx build-ios mobile
+    # Workaround for EACCES error
     - chmod 755 apps/mobile/android/gradlew
     - yarn nx build-android mobile
     - sleep 15
