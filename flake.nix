@@ -61,6 +61,7 @@
                   languages.java = {
                     enable = true;
                     gradle.enable = true;
+                    gradle.package = pkgs.gradle_8;
                   };
 
                   languages.ruby = {

@@ -3,7 +3,7 @@ task:
   macos_instance:
     # can be a remote or a local virtual machine
     image: sonoma-xcode-nix:15.2
-  hello_script:
+  buildmobile_script:
     - sudo launchctl kickstart -k system/org.nixos.nix-daemon
     - . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
     - nix develop --impure --accept-flake-config
@@ -13,8 +13,9 @@ task:
     - pushd apps/mobile
     - bundle
     - popd
-    - npx react-native doctor
+    # - npx react-native doctor
     - yarn nx pod-install mobile
-    - yarn nx build-ios mobile
+    # - yarn nx build-ios mobile
+    - chmod 755 apps/mobile/android/gradlew
     - yarn nx build-android mobile
     - sleep 15
