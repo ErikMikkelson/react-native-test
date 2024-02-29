@@ -14,5 +14,7 @@ task:
     - popd
     - yarn nx pod-install mobile
     - yarn nx build-ios mobile
+    # Workaround for EACCES error
+    - chmod 755 apps/mobile/android/gradlew
     - yarn nx build-android mobile
     - sleep 15
