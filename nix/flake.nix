@@ -8,16 +8,10 @@
 
   nixConfig = {
     extra-substituters = [
-      "https://nixpkgs.cachix.org"
-      "https://nixpkgs-ruby.cachix.org"
       "https://devenv.cachix.org"
-      "https://android-nixpkgs.cachix.org"
     ];
     extra-trusted-public-keys = [
-      "nixpkgs.cachix.org-1:q91R6hxbwFvDqTSDKwDAV4T5PxqXGxswD8vhONFMeOE="
-      "nixpkgs-ruby.cachix.org-1:vrcdi50fTolOxWCZZkw0jakOnUI1T19oYJ+PRYdK4SM="
       "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
-      "android-nixpkgs.cachix.org-1:2lZoPmwoyTVGaNDHqa6A32tdn8Gc0aMWBRrfXN1H3dQ="
     ];
   };
 

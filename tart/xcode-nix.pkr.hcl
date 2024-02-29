@@ -17,7 +17,7 @@ variable "xcode_version" {
 
 source "tart-cli" "tart" {
   vm_base_name = "${var.macos_version}-xcode:${var.xcode_version}"
-  vm_name      = "${var.macos_version}-xcode-nix:${var.xcode_version}"
+  vm_name      = "${var.macos_version}-xcode-nix-config:${var.xcode_version}"
   cpu_count    = 4
   memory_gb    = 8
   disk_size_gb = 90
@@ -43,6 +43,25 @@ build {
   provisioner "shell" {
     inline = [
       "curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --extra-conf 'trusted-users = admin' --no-confirm",
+    ]
+  }
+
+  // Create the nix folder
+  provisioner "shell" {
+    inline = [
+      "mkdir -p /tmp/nix",   // Create the directory if it doesn't exist
+    ]
+  }
+
+  provisioner "file" {
+    source      = "nix/"
+    destination = "/tmp/nix"
+  }
+
+  provisioner "shell" {
+    inline = [
+      "cd /tmp/nix",
+      "nix develop .#mobile --impure --accept-flake-config"
     ]
   }
 }
