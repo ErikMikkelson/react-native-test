@@ -6,10 +6,7 @@ task:
   buildmobile_script:
     - sudo launchctl kickstart -k system/org.nixos.nix-daemon
     - . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-    - rm -rf .nx
-    - rm -rf node_modules
-    - rm -rf .direnv
-    - rm -rf .devenv
+    - git clean -fxd .
     - nix develop ./nix#mobile --impure --accept-flake-config
     - yarn install
     - pushd apps/mobile
