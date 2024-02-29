@@ -3,8 +3,8 @@
 let
   android-sdk = (import inputs.android { }).sdk (sdkPkgs:
     with sdkPkgs; [
-      platforms-android-33
-      build-tools-33-0-0
+      platforms-android-34
+      build-tools-34-0-0
 
       platform-tools
       cmdline-tools-latest
@@ -12,10 +12,7 @@ let
       cmake-3-18-1
 
       emulator
-      system-images-android-33-google-apis-playstore-arm64-v8a
-
-      # Required by Fastlane
-      build-tools-30-0-3
+      system-images-android-34-google-apis-playstore-arm64-v8a
     ]);
 in {
   name = "mobile";
